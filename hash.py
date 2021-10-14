@@ -60,17 +60,7 @@ def hash(palabra):
                         num=num+(int(num/7))
         final=final+chr(num)
     return final
-palabra="a"
-print(palabra+" el hash es " +hash(palabra)+" "+str(len(hash(palabra)))+"\n")
-palabra="z"
-print(palabra+" el hash es " +hash(palabra)+" "+str(len(hash(palabra)))+"\n")
-palabra="aaaaaa"
-print(palabra+" el hash es " +hash(palabra)+" "+str(len(hash(palabra)))+"\n")
-palabra="sdajkldsjakldsahjsdahjdsahkjadsasdhdasjklda"
-print(palabra+" el hash es " +hash(palabra)+" "+str(len(hash(palabra)))+"\n")
-palabra="sdajkldsjakldsahjsdahjdsahkjadsasdhdasjkldaggjjuyy"
-print(palabra+" el hash es " +hash(palabra)+" "+str(len(hash(palabra)))+"\n")   
-palabra="               z   a       a"
-print(palabra+" el hash es " +hash(palabra)+" "+str(len(hash(palabra)))+"\n")    
-            
+print('introduzca palabra para hashear')   
+opcion = input()       
+print(opcion+"--------->"+hash(opcion))   
         
