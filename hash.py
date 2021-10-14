@@ -8,29 +8,69 @@ def hash(palabra):
         final=""
         for i in range(largo-1):
             num=ord(palabra[i])+ord(palabra[i+1])
+            if(num>800):
+                    num=num-800
             while(num in nosirve):
                 num=num+(int(num/7))
 
             final=final+chr(num)
         acumulado=ord(palabra[largo-1])
-        for i in range(falta-1):
+        for i in range(falta+1):
             if(i%2==0):
                 acumulado=acumulado+7
+                if(num>800):
+                    num=num-800
                 while(acumulado in nosirve):
                     acumulado=acumulado+(int(acumulado/7))
                 final=final+chr(acumulado)
             else:
                 acumulado=acumulado-5
+                if(num<=0):
+                    num=800+num
                 while(acumulado in nosirve):
                     acumulado=acumulado+(int(acumulado/5))
                 final=final+chr(acumulado)
+    else:
+        divisionxd=int(largo/25)
+        resto=int(largo%25)
+        final=""
+        limit=divisionxd*25
+        contador=0
+        num=0
+        for i in range(largo-1):
+            if(i<limit):
+                if(palabra[i]==' ' or palabra[i+1]==' ' ):
+                    num=7+largo
+                else:
+                    num=ord(palabra[i])+ord(palabra[i+1])
+                if(num>800):
+                    num=num-800
+                if(contador==divisionxd):
+                    while(num in nosirve):
+                        num=num+(int(num/7))
+                    final=final+chr(num)
+                    num=0
+                    contador=0
+                contador=contador+1
+            else:
+                 num=ord(palabra[i])+int(ord(palabra[i+1]))-int(ord(palabra[i+1])/2)
+                 if(num>800):
+                    num=num-800
+                 while(num in nosirve):
+                        num=num+(int(num/7))
+        final=final+chr(num)
     return final
-palabra="holi"
-print(palabra+" el hash es" +hash(palabra)+"\n")
-palabra="poder"
-print(palabra+" el hash es" +hash(palabra)+"\n")
+palabra="a"
+print(palabra+" el hash es " +hash(palabra)+" "+str(len(hash(palabra)))+"\n")
+palabra="z"
+print(palabra+" el hash es " +hash(palabra)+" "+str(len(hash(palabra)))+"\n")
 palabra="aaaaaa"
-print(palabra+" el hash es" +hash(palabra)+"\n")
-            
+print(palabra+" el hash es " +hash(palabra)+" "+str(len(hash(palabra)))+"\n")
+palabra="sdajkldsjakldsahjsdahjdsahkjadsasdhdasjklda"
+print(palabra+" el hash es " +hash(palabra)+" "+str(len(hash(palabra)))+"\n")
+palabra="sdajkldsjakldsahjsdahjdsahkjadsasdhdasjkldaggjjuyy"
+print(palabra+" el hash es " +hash(palabra)+" "+str(len(hash(palabra)))+"\n")   
+palabra="               z   a       a"
+print(palabra+" el hash es " +hash(palabra)+" "+str(len(hash(palabra)))+"\n")    
             
         
