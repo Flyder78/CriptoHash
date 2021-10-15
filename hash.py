@@ -62,13 +62,12 @@ def hash(palabra):
                  while(num in nosirve):
                         num=num+(int(num/7))
         final=final+chr(num)
-    print("largo del hash "+str(len(final)))
-    return final
+    print(palabra+"---------->"+final+" largo del hash "+str(len(final)))
 def entropia(texto):
     base = 16 
     entropia = len(texto)*math.log(base, 2) #H = LLog2(W)
     return entropia
 print('introduzca palabra para hashear')   
 opcion = input()       
-print(opcion+"--------->"+hash(opcion))   
+hash(opcion)
         
