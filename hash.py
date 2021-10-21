@@ -77,8 +77,8 @@ def hash(palabra):
         final=final+chr(num)
     print(palabra+str(len(palabra))+' '+final)
 def entropia():
-    base = 62 
-    entropia = 56*math.log(base, 2) #H = LLog2(W)
+    base = 32 
+    entropia = 64*math.log(base, 2) #H = LLog2(W)
     print(entropia)
 
 print('que quieres hacer?')
@@ -114,7 +114,7 @@ if(opcion=='4'):
         start_time = time()
         for i in log_file_fh:
             a=i.split()
-            print(hashlib.md5(a[0].encode('utf-8')).hexdigest())
+            print(hashlib.sha1(a[0].encode('utf-8')).hexdigest())
             if(contador==0):
                 break
             contador+=1
@@ -133,11 +133,11 @@ if(opcion=='4'):
                 elapsed_time = time() - start_time
                 print('tiempo del Hash: '+str(elapsed_time))
     contador=0
-    print('----------------------SHA224-------------------------')
+    print('----------------------SHA256-------------------------')
     with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
                 start_time = time()
                 for i in log_file_fh:
-                    print(hashlib.sha224(str(i).encode('utf-8')).hexdigest())
+                    print(hashlib.sha256(str(i).encode('utf-8')).hexdigest())
                     if(contador==0):
                         break
                     contador+=1
@@ -149,7 +149,7 @@ if(opcion=='5'):
     with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
         start_time = time()
         for i in log_file_fh:
-            print(hashlib.md5(str(i).encode('utf-8')).hexdigest())
+            print(hashlib.sha1(str(i).encode('utf-8')).hexdigest())
             if(contador==9):
                 break
             contador+=1
@@ -172,7 +172,7 @@ if(opcion=='5'):
     with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
                 start_time = time()
                 for i in log_file_fh:
-                    print(hashlib.sha224(str(i).encode('utf-8')).hexdigest())
+                    print(hashlib.sha256(str(i).encode('utf-8')).hexdigest())
                     if(contador==9):
                         break
                     contador+=1
@@ -184,7 +184,7 @@ if(opcion=='6'):
     with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
         start_time = time()
         for i in log_file_fh:
-            print(hashlib.md5(str(i).encode('utf-8')).hexdigest())
+            print(hashlib.sha1(str(i).encode('utf-8')).hexdigest())
             if(contador==19):
                 break
             contador+=1
@@ -207,7 +207,7 @@ if(opcion=='6'):
     with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
                 start_time = time()
                 for i in log_file_fh:
-                    print(hashlib.sha224(str(i).encode('utf-8')).hexdigest())
+                    print(hashlib.sha256(str(i).encode('utf-8')).hexdigest())
                     if(contador==19):
                         break
                     contador+=1
@@ -219,7 +219,7 @@ if(opcion=='7'):
     with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
         start_time = time()
         for i in log_file_fh:
-            print(hashlib.md5(str(i).encode('utf-8')).hexdigest())
+            print(hashlib.sha1(str(i).encode('utf-8')).hexdigest())
             if(contador==49):
                 break
             contador+=1
@@ -242,7 +242,7 @@ if(opcion=='7'):
     with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
                 start_time = time()
                 for i in log_file_fh:
-                    print(hashlib.sha224(str(i).encode('utf-8')).hexdigest())
+                    print(hashlib.sha256(str(i).encode('utf-8')).hexdigest())
                     if(contador==49):
                         break
                     contador+=1
