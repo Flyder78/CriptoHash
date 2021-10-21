@@ -1,6 +1,9 @@
 
 
 import math
+import hashlib
+from time import time
+
 
 def hash(palabra):
     #este arreglo es porque  los caracteres con valor de Unicode que estan dentro del arreglo son caracteres invalidos o vacios que no puede mostrar python
@@ -72,15 +75,20 @@ def hash(palabra):
                  while(num in nosirve):
                         num=num+(int(num/7))
         final=final+chr(num)
-    print(palabra+"---------->"+final+" largo del hash "+str(len(final)))
+    print(palabra+str(len(palabra))+' '+final)
 def entropia():
-    base = 758 
-    entropia = 25*math.log(base, 2) #H = LLog2(W)
+    base = 62 
+    entropia = 56*math.log(base, 2) #H = LLog2(W)
     print(entropia)
+
 print('que quieres hacer?')
 print('1.- hashear string')
 print('2.- Archivo')
-print('3.- Entropia')  
+print('3.- Entropia')
+print('4.- prueba 1 (1 entrada de rokyou)')
+print('5.- prueba 2 (10 entrada de rokyou)')
+print('6.- prueba 3 (20 entrada de rokyou)')
+print('7.- prueba 4 (50 entrada de rokyou)')
 opcion = input()
 if(opcion=='1'):
     print('ingrese palabra')
@@ -92,9 +100,152 @@ if(opcion=='2'):
     path=input()
     with open(path, 'r',errors='ignore') as log_file_fh:
                 for i in log_file_fh:
-                    hash(str(i))
+                    a=i.split()
+                    if(len(a)>0):
+                        hash(a[0])
 
                     
 if(opcion=='3'):
     entropia()
+if(opcion=='4'):
+    contador=0
+    print('----------------------MD5-------------------------')
+    with open('rockyou.txt', 'r') as log_file_fh:
+        start_time = time()
+        for i in log_file_fh:
+            a=i.split()
+            print(hashlib.md5(a[0].encode('utf-8')).hexdigest())
+            if(contador==0):
+                break
+            contador+=1
+        elapsed_time = time() - start_time
+        print('tiempo del MD5: '+str(elapsed_time))
+    contador=0
+    print('----------------------Hash-------------------------')
+    with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
+                start_time = time()
+                for i in log_file_fh:
+                    a=i.split()
+                    hash(a[0])
+                    if(contador==0):
+                        break
+                    contador+=1
+                elapsed_time = time() - start_time
+                print('tiempo del Hash: '+str(elapsed_time))
+    contador=0
+    print('----------------------SHA224-------------------------')
+    with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
+                start_time = time()
+                for i in log_file_fh:
+                    print(hashlib.sha224(str(i).encode('utf-8')).hexdigest())
+                    if(contador==0):
+                        break
+                    contador+=1
+                elapsed_time = time() - start_time
+                print('tiempo del SHA224: '+str(elapsed_time))
+if(opcion=='5'):
+    contador=0
+    print('----------------------MD5-------------------------')
+    with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
+        start_time = time()
+        for i in log_file_fh:
+            print(hashlib.md5(str(i).encode('utf-8')).hexdigest())
+            if(contador==9):
+                break
+            contador+=1
+        elapsed_time = time() - start_time
+        print('tiempo del MD5: '+str(elapsed_time))
+    contador=0
+    print('----------------------Hash-------------------------')
+    with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
+                start_time = time()
+                for i in log_file_fh:
+                    a=i.split()
+                    hash(a[0])
+                    if(contador==9):
+                        break
+                    contador+=1
+                elapsed_time = time() - start_time
+                print('tiempo del Hash: '+str(elapsed_time))
+    contador=0
+    print('----------------------SHA224-------------------------')
+    with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
+                start_time = time()
+                for i in log_file_fh:
+                    print(hashlib.sha224(str(i).encode('utf-8')).hexdigest())
+                    if(contador==9):
+                        break
+                    contador+=1
+                elapsed_time = time() - start_time
+                print('tiempo del SHA224: '+str(elapsed_time))
+if(opcion=='6'):
+    contador=0
+    print('----------------------MD5-------------------------')
+    with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
+        start_time = time()
+        for i in log_file_fh:
+            print(hashlib.md5(str(i).encode('utf-8')).hexdigest())
+            if(contador==19):
+                break
+            contador+=1
+        elapsed_time = time() - start_time
+        print('tiempo del MD5: '+str(elapsed_time))
+    contador=0
+    print('----------------------Hash-------------------------')
+    with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
+                start_time = time()
+                for i in log_file_fh:
+                    a=i.split()
+                    hash(a[0])
+                    if(contador==19):
+                        break
+                    contador+=1
+                elapsed_time = time() - start_time
+                print('tiempo del Hash: '+str(elapsed_time))
+    contador=0
+    print('----------------------SHA224-------------------------')
+    with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
+                start_time = time()
+                for i in log_file_fh:
+                    print(hashlib.sha224(str(i).encode('utf-8')).hexdigest())
+                    if(contador==19):
+                        break
+                    contador+=1
+                elapsed_time = time() - start_time
+                print('tiempo del SHA224: '+str(elapsed_time))
+if(opcion=='7'):
+    contador=0
+    print('----------------------MD5-------------------------')
+    with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
+        start_time = time()
+        for i in log_file_fh:
+            print(hashlib.md5(str(i).encode('utf-8')).hexdigest())
+            if(contador==49):
+                break
+            contador+=1
+        elapsed_time = time() - start_time
+        print('tiempo del MD5: '+str(elapsed_time))
+    contador=0
+    print('----------------------Hash-------------------------')
+    with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
+                start_time = time()
+                for i in log_file_fh:
+                    a=i.split()
+                    hash(a[0])
+                    if(contador==49):
+                        break
+                    contador+=1
+                elapsed_time = time() - start_time
+                print('tiempo del Hash: '+str(elapsed_time))
+    contador=0
+    print('----------------------SHA224-------------------------')
+    with open('rockyou.txt', 'r',errors='ignore') as log_file_fh:
+                start_time = time()
+                for i in log_file_fh:
+                    print(hashlib.sha224(str(i).encode('utf-8')).hexdigest())
+                    if(contador==49):
+                        break
+                    contador+=1
+                elapsed_time = time() - start_time
+                print('tiempo del SHA224: '+str(elapsed_time))
         
